@@ -1,5 +1,5 @@
-# Go client for OmiseGo Ewallet and Admin API
-Go client for all admin and server endpoints. Keep in mind that the tests aren't done yet and will return fails. Feedback is warmly welcomed.
+# Go client for OmiseGo eWallet and Admin API
+Go client for all admin and server endpoints [OmiseGo](https://github.com/omisego/ewallet). Keep in mind that the tests aren't done yet and will return fails. Feedback is warmly welcomed. 
 
 ## Getting started
 `go get github.com/Alainy/OmiseGo-Go-SDK`
