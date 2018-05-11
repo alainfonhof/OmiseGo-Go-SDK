@@ -1,3 +1,5 @@
+[![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/Alainy/OmiseGo-Go-SDK)
+
 # Go client for OmiseGo eWallet and Admin API
 Go client for all admin and server endpoints [OmiseGo](https://github.com/omisego/ewallet). Keep in mind that the tests aren't done yet and will return fails. Feedback is warmly welcomed. 
 
