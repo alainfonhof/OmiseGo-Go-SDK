@@ -2,6 +2,7 @@ package omisego_test
 
 import (
 	omg "github.com/Alainy/OmiseGo-Go-SDK"
+	"github.com/icrowley/fake"
 	"net/url"
 	"testing"
 )
@@ -25,7 +26,43 @@ func TestAdminAll(t *testing.T) {
 
 	body := omg.ListParams{}
 	res, err := adminClient.AdminAll(body)
+	t.Log(res)
+	if err != nil {
+		t.Fatal(err)
+	}
+}
 
+func TestUserCreate(t *testing.T) {
+	c, _ := omg.NewClient(accessKey, secretKey, adminURL)
+	adminClient := omg.AdminAPI{
+		Client: c,
+	}
+
+	body := omg.UserParams{
+		fake.UserName(),
+		fake.EmailAddress(),
+		map[string]interface{}{
+			"first_name": fake.FirstName(),
+			"last_name":  fake.LastName(),
+		},
+		nil,
+	}
+	res, err := adminClient.UserCreate(body)
+	t.Log(res)
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestUserAll(t *testing.T) {
+	c, _ := omg.NewClient(accessKey, secretKey, adminURL)
+	adminClient := omg.AdminAPI{
+		Client: c,
+	}
+
+	body := omg.ListParams{}
+	res, err := adminClient.UserAll(body)
+	t.Log(res)
 	if err != nil {
 		t.Fatal(err)
 	}
