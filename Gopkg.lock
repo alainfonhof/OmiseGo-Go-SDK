@@ -3,15 +3,9 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/corpix/uarand"
+  name = "github.com/Alainy/OmiseGo-Go-SDK"
   packages = ["."]
-  revision = "2b8494104d86337cdd41d0a49cbed8e4583c0ab4"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/icrowley/fake"
-  packages = ["."]
-  revision = "4178557ae428460c3780a381c824a1f3aceb6325"
+  revision = "0e5563a02e74e6d8ca5e7fd028de2112e15fdd0b"
 
 [[projects]]
   branch = "master"
@@ -22,6 +16,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "177a16271eb213656fbb39cd93068dafa6c28e29605fac49767eb8d785805c39"
+  inputs-digest = "9556a276bd6d119b49bde6e0c58970cd5367dfe7033af3c2efd947d4a1261985"
   solver-name = "gps-cdcl"
   solver-version = 1
