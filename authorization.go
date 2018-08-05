@@ -8,19 +8,12 @@ type Authorization interface {
 	CreateAuthorizationHeader() string
 }
 
-type AdminClientAuth struct {
-	ApiKeyId string
-	ApiKey   string
-}
-
-type AdminUserAuth struct {
-	ApiKeyId      string
-	ApiKey        string
+type AdminAuth struct {
 	UserId        string
 	UserAuthToken string
 }
 
-type ServerAuth struct {
+type ProviderAuth struct {
 	AccessKey string
 	SecretKey string
 }
@@ -30,22 +23,16 @@ type ClientAuth struct {
 	AuthenicationToken string
 }
 
-func (a *AdminClientAuth) CreateAuthorizationHeader() string {
-	data := []byte(a.ApiKeyId + ":" + a.ApiKey)
+func (a *AdminAuth) CreateAuthorizationHeader() string {
+	data := []byte(a.UserId + ":" + a.UserAuthToken)
 	str := base64.StdEncoding.EncodeToString(data)
 	return "OMGAdmin " + str
 }
 
-func (a *AdminUserAuth) CreateAuthorizationHeader() string {
-	data := []byte(a.ApiKeyId + ":" + a.ApiKey + ":" + a.UserId + ":" + a.UserAuthToken)
-	str := base64.StdEncoding.EncodeToString(data)
-	return "OMGAdmin " + str
-}
-
-func (s *ServerAuth) CreateAuthorizationHeader() string {
+func (s *ProviderAuth) CreateAuthorizationHeader() string {
 	data := []byte(s.AccessKey + ":" + s.SecretKey)
 	str := base64.StdEncoding.EncodeToString(data)
-	return "OMGServer " + str
+	return "OMGProvider " + str
 }
 
 func (c *ClientAuth) CreateAuthorizationHeader() string {
