@@ -34,7 +34,7 @@ func main(){
     },
   }
 
-  user, err := serverUser.UserCreate(userBody)
+  user, err := adminClient.UserCreate(userBody)
 }
 ```
 
