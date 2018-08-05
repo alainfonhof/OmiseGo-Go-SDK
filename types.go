@@ -29,7 +29,7 @@ type (
 		IsLastPage  bool `mapstructure:"is_last_page"`
 	}
 
-	Error struct {
+	ErrorResponse struct {
 		Object      string                 `mapstructure:"object"`
 		Code        string                 `mapstructure:"code"`
 		Description string                 `mapstructure:"description"`
@@ -670,6 +670,6 @@ type (
 	}
 )
 
-func (e *Error) Error() string {
+func (e *ErrorResponse) Error() string {
 	return fmt.Sprintf("%+v", *e)
 }

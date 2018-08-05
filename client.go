@@ -20,16 +20,16 @@ type Client struct {
 }
 
 // NewClient returns new Client struct
-func NewClient(apiKeyId string, apiKey string, BaseURL *url.URL) (*Client, error) {
-	if apiKeyId == "" || apiKey == "" || BaseURL == nil {
-		return nil, errors.New("ApiKeyID, ApiKey and BaseURL are required to create a Client")
+func NewClient(accessKey string, secretKey string, BaseURL *url.URL) (*Client, error) {
+	if accessKey == "" || secretKey == "" || BaseURL == nil {
+		return nil, errors.New("AccessKey, SecretKey and BaseURL are required to create a Client")
 	}
 
 	return &Client{
 		HttpClient: &http.Client{},
-		Auth: &AdminClientAuth{
-			ApiKey:   apiKey,
-			ApiKeyId: apiKeyId,
+		Auth: &ProviderAuth{
+			SecretKey: secretKey,
+			AccessKey: accessKey,
 		},
 		BaseURL: BaseURL,
 		Log:     nil,
