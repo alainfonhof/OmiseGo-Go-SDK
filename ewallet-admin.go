@@ -128,7 +128,7 @@ func (a *AdminAPI) AdminGet(reqBody IdParam) (*User, error) {
 func (a *AdminAPI) InviteAccept() (*User, error) {
 	req, err := a.newRequest("POST", "/invite.accept", nil)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	res, err := a.do(req)
@@ -148,7 +148,7 @@ func (a *AdminAPI) InviteAccept() (*User, error) {
 func (a *AdminAPI) MeGet() (*User, error) {
 	req, err := a.newRequest("POST", "/me.get", nil)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	res, err := a.do(req)
@@ -168,7 +168,7 @@ func (a *AdminAPI) MeGet() (*User, error) {
 func (a *AdminAPI) MeUpdate(reqBody MeUpdateParams) (*User, error) {
 	req, err := a.newRequest("POST", "/me.update", reqBody)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	res, err := a.do(req)
@@ -271,7 +271,7 @@ func (a *AdminAPI) UserLogin(reqBody IdParam) (*AuthenicationToken, error) {
 func (a *AdminAPI) UserLogout(reqBody AuthTokenParam) error {
 	req, err := a.newRequest("POST", "/user.logout", reqBody)
 	if err != nil {
-		return nil, err
+		return err
 	}
 
 	_, err = a.do(req)
@@ -464,7 +464,7 @@ func (e *AdminAPI) UserGetTransactionConsumption(reqBody ListByUserIdParams) (*T
 		return nil, err
 	}
 
-	var data TransactionList
+	var data TransactionComsumptionList
 	err = mapstructure.Decode(res.Data, &data)
 	if err != nil {
 		return nil, fmt.Errorf("Something went wrong with decoding %+v to %T", res.Data, data)
@@ -1323,7 +1323,7 @@ func (a *AdminAPI) TransactionRequestAll(reqBody ListParams) (*TransactionReques
 	return &data, err
 }
 
-func (a *AdminAPI) TransactionGet(reqBody TransactionRequestGetParam) (*TransactionRequest, error) {
+func (a *AdminAPI) TransactionRequestGet(reqBody TransactionRequestGetParam) (*TransactionRequest, error) {
 	req, err := a.newRequest("POST", "/transaction_request.get", reqBody)
 	if err != nil {
 		return nil, err
@@ -1532,7 +1532,7 @@ func (a *AdminAPI) AccessKeyCreate() (*AccessKey, error) {
 func (a *AdminAPI) AccessKeyUpdate(reqBody AccessKeyUpdateParams) (*AccessKey, error) {
 	req, err := a.newRequest("POST", "/access_key.update", reqBody)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	res, err := a.do(req)
@@ -1610,7 +1610,7 @@ func (a *AdminAPI) APIKeyDelete(reqBody IdParam) error {
 func (a *AdminAPI) APIKeyUpdate(reqBody APIKeyUpdateParams) (*APIKey, error) {
 	req, err := a.newRequest("POST", "/api_key.update", reqBody)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	res, err := a.do(req)
@@ -1633,7 +1633,7 @@ func (a *AdminAPI) APIKeyUpdate(reqBody APIKeyUpdateParams) (*APIKey, error) {
 func (a *AdminAPI) Setting() (*Setting, error) {
 	req, err := a.newRequest("POST", "/settings.all", nil)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	res, err := a.do(req)
