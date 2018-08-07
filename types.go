@@ -102,7 +102,7 @@ type (
 		FromToken   Token   `mapstructure:"from_token"`
 		ToTokenId   string  `mapstructure:"to_token_id"`
 		ToToken     Token   `mapstructure:"to_token"`
-		Rate        float32 `mapstructure:"rate"`
+		Rate        float64 `mapstructure:"rate"`
 		CreatedAt   string  `mapstructure:"created_at"`
 		UpdatedAt   string  `mapstructure:"updated_at"`
 		DeletedAt   string  `mapstructure:"deleted_at"`
@@ -241,13 +241,13 @@ type (
 	TransactionSource struct {
 		Object  string  `mapstructure:"object"`
 		Address string  `mapstructure:"address"`
-		Amount  float32 `mapstructure:"amount"`
+		Amount  float64 `mapstructure:"amount"`
 		Token   `mapstructure:"token"`
 	}
 
 	Exchange struct {
 		Object string  `mapstructure:"object"`
-		Rate   float32 `mapstructure:"rate"`
+		Rate   float64 `mapstructure:"rate"`
 	}
 
 	TransactionCalculation struct {
@@ -501,13 +501,13 @@ type (
 	ExchangePairCreateParams struct {
 		FromTokenId  string  `json:"from_token_id"`
 		ToTokenId    string  `json:"to_token_id"`
-		Rate         float32 `json:"rate"`
+		Rate         float64 `json:"rate"`
 		SyncOpposite bool    `json:"sync_opposite,omitempty"`
 	}
 
 	ExchangePairUpdateParams struct {
 		Id   string  `json:"id"`
-		Rate float32 `json:"rate,omitempty"`
+		Rate float64 `json:"rate,omitempty"`
 	}
 
 	CategoryCreateParams struct {
