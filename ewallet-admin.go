@@ -377,7 +377,7 @@ func (e *AdminAPI) UserGetByProviderUserId(reqBody ProviderUserIdParam) (*User, 
 	return &data, nil
 }
 
-func (e *AdminAPI) UserGetWalletsById(reqBody IdParam) (*WalletList, error) {
+func (e *AdminAPI) UserGetWalletsById(reqBody ListByIdParams) (*WalletList, error) {
 	req, err := e.newRequest("POST", "/user.get_wallets", reqBody)
 	if err != nil {
 		return nil, err
@@ -396,7 +396,7 @@ func (e *AdminAPI) UserGetWalletsById(reqBody IdParam) (*WalletList, error) {
 	return &data, nil
 }
 
-func (e *AdminAPI) UserGetWalletsByProviderUserId(reqBody ProviderUserIdParam) (*WalletList, error) {
+func (e *AdminAPI) UserGetWalletsByProviderUserId(reqBody ListByProviderUserIdParams) (*WalletList, error) {
 	req, err := e.newRequest("POST", "/user.get_wallets", reqBody)
 	if err != nil {
 		return nil, err
@@ -415,7 +415,7 @@ func (e *AdminAPI) UserGetWalletsByProviderUserId(reqBody ProviderUserIdParam) (
 	return &data, nil
 }
 
-func (e *AdminAPI) UserGetTransactionsById(reqBody IdParam) (*TransactionList, error) {
+func (e *AdminAPI) UserGetTransactionsById(reqBody ListByIdParams) (*TransactionList, error) {
 	req, err := e.newRequest("POST", "/user.get_transactions", reqBody)
 	if err != nil {
 		return nil, err
@@ -434,7 +434,7 @@ func (e *AdminAPI) UserGetTransactionsById(reqBody IdParam) (*TransactionList, e
 	return &data, nil
 }
 
-func (e *AdminAPI) UserGetTransactionsByProviderUserId(reqBody ProviderUserIdParam) (*TransactionList, error) {
+func (e *AdminAPI) UserGetTransactionsByProviderUserId(reqBody ListByProviderUserIdParams) (*TransactionList, error) {
 	req, err := e.newRequest("POST", "/user.get_transactions", reqBody)
 	if err != nil {
 		return nil, err
