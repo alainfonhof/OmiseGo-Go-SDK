@@ -215,6 +215,7 @@ type (
 	}
 
 	Balance struct {
+		Object string `mapstructure:"object"`
 		Token  `mapstructure:"token"`
 		Amount int `mapstructure:"amount"`
 	}
