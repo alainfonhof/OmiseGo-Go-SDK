@@ -36,7 +36,7 @@ type EwalletAdminAPI interface {
 	UserGetWalletsById(reqBody ListByIdParams) (*WalletList, error)
 	UserGetWalletsByProviderUserId(reqBody ListByProviderUserIdParams) (*WalletList, error)
 	UserGetTransactionsById(reqBody ListByIdParams) (*TransactionList, error)
-	UserGetTransactionsByProviderUserId(reqBody ListByProviderUserIdParam) (*TransactionList, error)
+	UserGetTransactionsByProviderUserId(reqBody ListByProviderUserIdParams) (*TransactionList, error)
 	UserGetTransactionConsumption(reqBody ListByUserIdParams) (*TransactionComsumptionList, error)
 	TokenAll(reqBody ListParams) (*TokenList, error)
 	TokenGet(reqBody IdParam) (*Token, error)
